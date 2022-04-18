@@ -130,4 +130,5 @@ dmypy.json
 
 git_ignore
 config.py
+config.js
 .DS_Store
