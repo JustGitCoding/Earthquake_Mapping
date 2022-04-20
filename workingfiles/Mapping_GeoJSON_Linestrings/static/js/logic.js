@@ -17,8 +17,8 @@ let dark = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{
 
 // create a base layer that holds both versions of the map
 let baseMaps = {
-    Light: light,
-    Dark: dark
+    Day: light,
+    Night: dark
 };
 
 // create map object with center, zoom level and default layer
@@ -33,16 +33,25 @@ L.control.layers(baseMaps).addTo(map);
 
 // do this AFTER titleLayer so that the map loads before we try and load individual data points
 // pull airport data from my own Repo on GitHub
-let airportData = "https://raw.githubusercontent.com/JustGitCoding/Earthquake_Mapping/main/workingfiles/majorAirports.json";
+let torontoData = "https://raw.githubusercontent.com/JustGitCoding/Earthquake_Mapping/main/workingfiles/torontoRoutes.json";
 
+
+// create line style (so code below isn't as cluttered)
+let myStyle = {
+    color: "#ffffa1",
+    weight: 1
+};
 
 // grabbing GeoJSON data --- MULTIPLE data points
-d3.json(airportData).then(function(data){
+d3.json(torontoData).then(function(data){
     console.log(data);
-    // Creating a GeoJSON layer with the retrieved data (MULTIPLE points)
-    L.geoJSON(data, {
-        onEachFeature: function(feature, layer) {
-            layer.bindPopup("<h2>Airport Code: " + layer.feature.properties.faa + "</h2><hr>" + "<h3>Airport Name: " + layer.feature.properties.name + "</h3>");
-        }
-    }).addTo(map);
+// Creating a GeoJSON layer with the retrieved data (MULTIPLE points)
+L.geoJSON(data, {
+    style: myStyle,
+    onEachFeature: function(feature, layer) {
+        layer.bindPopup("<h2>Airline: " + feature.properties.airline + "</h2><hr><h3>Destination: " 
+        + feature.properties.dst + "</h3>");
+    }
+}).addTo(map);
 });
+
