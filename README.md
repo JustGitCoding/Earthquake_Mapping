@@ -29,12 +29,20 @@ GeoJSON data
 
 Mapbox API
 
-adding .map and .tileLayer
-.circle
-.marker
-.circleMarker
-.bindPopup
+adding `.map` and `.tileLayer`
+`.circle`
+`.marker`
+`.circleMarker`
+`.bindPopup`
 
-use .forEach to iterate through multiple points
+use `.forEach` to iterate through multiple points
 
-.polyline
+`.polyline`
+
+multiple `.layers()` and `.layerGroups()`
+adding a legend control object to our map
+
+
+
+
+Tectonic Plate Data obtained from GitHub user: [fraxen](https://github.com/fraxen/tectonicplates/tree/master/GeoJSON)
