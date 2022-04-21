@@ -13,10 +13,6 @@ At the bottom right of the screen, we have also included a Legend using `.DomUti
 ### Tectonic Plates
 Finally, we plotted the Tectonic Plate lines (GeoJSON `LineString`) as an additional `.layerGroup()` on our map, which can be toggled on top of our earthquake markers.
 
-
-
- 
-
 ## Tools
 1. Mapbox API (https://www.mapbox.com/)
 2. JavaScript
